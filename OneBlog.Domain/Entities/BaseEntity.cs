@@ -6,6 +6,6 @@ namespace OneBlog.Domain.Entities
     {
         public int Id { get; set; }
         public DateTime CreatedDate { get; set; }
-        public DateTime DeletedDate { get; set; }
+        public DateTime? DeletedDate { get; set; }
     }
 }

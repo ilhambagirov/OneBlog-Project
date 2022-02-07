@@ -7,10 +7,19 @@
   <ItemGroup>
     <PackageReference Include="MediatR" Version="10.0.1" />
     <PackageReference Include="MediatR.Extensions.Microsoft.DependencyInjection" Version="10.0.1" />
+    <PackageReference Include="Microsoft.AspNetCore.Mvc.Abstractions" Version="2.2.0" />
+    <PackageReference Include="Microsoft.AspNetCore.Mvc.Core" Version="2.2.5" />
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\OneBlog.Persistence\OneBlog.Persistence.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Core\Extensions\" />
+    <Folder Include="Core\Providers\" />
+    <Folder Include="Models\Request\" />
+    <Folder Include="Modules\Admin\" />
   </ItemGroup>
 
 </Project>

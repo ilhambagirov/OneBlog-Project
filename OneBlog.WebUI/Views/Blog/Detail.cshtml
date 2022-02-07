@@ -1,4 +1,4 @@
-﻿
+﻿@model Blog
 @{
     ViewData["Title"] = "Detail";
 }
@@ -7,19 +7,16 @@
         <div class="content-wrapper article-hero">
             <a href="../author/raymond-sowie"
                class="link-block article-author-hero w-inline-block">
-                <img height=""
-                     loading="lazy"
-                     src="~/Images/BlogImages/60eb6d96b792b71cd94d723c_Raymond%20Sowle%20Author%20Hero.jpg"
+               @* <img loading="lazy"
+                     src="~/Images/BlogImages/@Model.FilePath"
                      alt=""
-                     class="image article-author" />
-                <p class="paragraph-small article-author">Raymond Sowie</p>
+                     class="image article-author" />*@
+                <p class="paragraph-small article-author">Ilham Baghirov</p>
             </a>
             <div class="article-hero-title">
                 <h1 class="title">Day trips around Arizona</h1>
                 <p class="paragraph article-hero">
-                    Est blanditiis amet hic laborum qui quo non non. Voluptas eaque
-                    autem laborum architecto provident quo perferendis necessitatibus
-                    perferendis. Veniam unde provident aliquam quia.
+                   @Model.ShortDescription
                 </p>
             </div>
             <div class="article-details">
@@ -27,7 +24,7 @@
                    href="../category/europe"
                    class="article-category-link w-inline-block"><div class="article-category-name">Europe</div></a>
                 <div class="article-date-time">
-                    <div class="tagline">July 12, 2021</div>
+                    <div class="tagline">@Model.CreatedDate.ToString("yyyy-mmm-dd")</div>
                     <div class="tagline article"><strong>•</strong></div>
                     <div class="tagline">8 min read</div>
                 </div>
@@ -42,7 +39,7 @@
 <div class="section article-hero-image wf-section">
     <div class="container w-container">
         <div class="content-wrapper article-main-image">
-            <img src="~/Images/BlogImages/60e8cf45bedf1f9929f8cc22_Arizona%201.jpg"
+            <img src="~/Images/BlogImages/@Model.FilePath"
                  loading="lazy"
                  data-w-id="03b271fa-92fe-4da6-7339-47f7a5ae9bb7"
                  alt=""
@@ -62,99 +59,8 @@
             <div id="w-node-_21ce002a-ccf2-84a5-ca8c-34d81e790367-b2ef100f"
                  class="rich-text-wrapper">
                 <div class="article article-content w-richtext">
-                    <h2>The steps covered in this guide</h2>
                     <p>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                        eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-                        enim ad minim veniam, quis nostrud exercitation ullamco laboris
-                        nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor
-                        in reprehenderit in voluptate velit esse cillum dolore eu fugiat
-                        nulla pariatur. Excepteur sint occaecat cupidatat non proident,
-                        sunt in culpa qui officia deserunt mollit anim id est laborum.
-                    </p>
-                    <ol start="" role="list">
-                        <li>Lorem ipsum dolor sit amet</li>
-                        <li>Consectetur adipiscing elit</li>
-                        <li>Sed do eiusmod tempor incididunt</li>
-                        <li>Labore et dolore magna aliqua</li>
-                    </ol>
-                    <h3>Why you should start traveling</h3>
-                    <p>
-                        Et qui et quae et maxime assumenda. Suscipit voluptatum in
-                        fugiat. A sapiente eveniet doloremque asperiores numquam
-                        voluptatem. Beatae illo commodi. Sit amet, consectetur
-                        adipiscing elit, sed do eiusmod tempor incididunt ut labore et
-                        dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
-                        exercitation ullamco laboris nisi ut aliquip ex ea commodo
-                        consequat. Duis aute irure dolor in reprehenderit in voluptate
-                        velit esse cillum dolore eu fugiat nulla pariatur. Excepteur
-                        sint occaecat cupidatat non proident, sunt in culpa qui officia
-                        deserunt mollit anim id est laborum
-                    </p>
-                    <figure style="max-width: 2624pxpx"
-                            class="w-richtext-align-fullwidth w-richtext-figure-type-image">
-                        <div>
-                            <img src="~/Images/BlogImages/60eb3219336c29021a63b83c_Arizona%204.jpg"
-                                 loading="lazy"
-                                 alt="" />
-                        </div>
-                    </figure>
-                    <h4><strong>Choose your preferred destination</strong></h4>
-                    <p>
-                        Et qui et quae et maxime assumenda. Suscipit voluptatum in
-                        fugiat. A sapiente eveniet doloremque asperiores numquam
-                        voluptatem. Beatae illo commodi. Onsectetur adipiscing elit, sed
-                        do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                        Ut enim ad minim veniam, quis nostrud exercitation ullamco
-                        laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure
-                        dolor in reprehenderit in voluptate velit esse cillum dolore eu
-                        fugiat nulla pariatur. Excepteur sint occaecat cupidatat.
-                    </p>
-                    <blockquote>
-                        Ut porro aperiam dolores. Maxime aut rerum corporis est iusto
-                        quod molestiae ut quisquam.
-                    </blockquote>
-                    <h5>Keep it simple</h5>
-                    <p>
-                        Quisquam ea quos quisquam velit debitis. Ut cumque eius. Dolor
-                        molestias voluptatem in. Et blanditiis perferendis aperiam illum
-                        molestiae molestiae corporis. Consequatur quae accusamus
-                        provident qui. Est dolorem ut sint aliquid et et placeat eum
-                        minima. Osmod tempor incididunt ut labore et dolore magna
-                        aliqua. Ut enim ad minim veniam, quis nostrud exercitation
-                        ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis
-                        aute irure dolor in reprehenderit in voluptate velit esse cillum
-                        dolore eu fugiat nulla pariatur. Excepteur sint occaecat
-                        cupidatat non proident, sunt in culpa qui officia deserunt
-                        mollit anim id est laborum
-                    </p>
-                    <ul role="list">
-                        <li>Lorem ipsum dolor sit amet</li>
-                        <li>Consectetur adipiscing elit</li>
-                        <li>Sed do eiusmod tempor incididunt</li>
-                        <li>Labore et dolore magna aliqua</li>
-                    </ul>
-                    <figure style="max-width:2624pxpx"
-                            class="w-richtext-align-fullwidth w-richtext-figure-type-image">
-                        <div>
-                            <img src="~/Images/BlogImages/60eb323bcfd937893a0adc2f_Arizona%202.jpg"
-                                 loading="lazy"
-                                 alt="" />
-                        </div>
-                        <figcaption>Dicta corporis occaecati</figcaption>
-                    </figure>
-                    <h6>Useful resources for beginners</h6>
-                    <p>
-                        Voluptates autem placeat in amet blanditiis. Enim aut sed qui.
-                        Dicta corporis occaecati aut. Ea architecto dolores est culpa
-                        repellat delectus. Lorem ipsum dolor sit amet, consectetur
-                        adipiscing elit, sed do eiusmod tempor incididunt ut labore et
-                        dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
-                        exercitation ullamco laboris nisi ut aliquip ex ea commodo
-                        consequat. Duis aute irure dolor in reprehenderit in voluptate
-                        velit esse cillum dolore eu fugiat nulla pariatur. Excepteur
-                        sint occaecat cupidatat non proident, sunt in culpa qui officia
-                        deserunt mollit anim id est laborum
+                      @Model.Body
                     </p>
                 </div>
                 <div class="w-dyn-list">

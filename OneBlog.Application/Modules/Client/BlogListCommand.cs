@@ -22,7 +22,7 @@ namespace OneBlog.Application.Modules.Client
         }
         public async Task<List<Blog>> Handle(BlogListCommand request, CancellationToken cancellationToken)
         {
-           return await db.Blogs.ToListAsync();
+            return await db.Blogs.ToListAsync();
         }
     }
 }

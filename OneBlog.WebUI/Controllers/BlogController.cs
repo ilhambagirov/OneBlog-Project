@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using OneBlog.Application.Modules.Client;
 using OneBlog.Domain.Entities;
 using System.Collections.Generic;
@@ -6,6 +7,7 @@ using System.Threading.Tasks;
 
 namespace OneBlog.WebUI.Controllers
 {
+    [AllowAnonymous]
     public class BlogController : BaseController
     {
         [HttpGet]
@@ -15,9 +17,9 @@ namespace OneBlog.WebUI.Controllers
         }
 
         [HttpGet("Id")]
-        public IActionResult Detail()
+        public async Task<ActionResult<Blog>> Detail(BlogDetailsQuery query)
         {
-            return View();
+            return View(await Mediator.Send(query));
         }
     }
 }
