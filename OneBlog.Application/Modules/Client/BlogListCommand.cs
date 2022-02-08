@@ -3,6 +3,7 @@ using Microsoft.EntityFrameworkCore;
 using OneBlog.Domain.Entities;
 using OneBlog.Persistence.DataContext;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 
@@ -22,7 +23,7 @@ namespace OneBlog.Application.Modules.Client
         }
         public async Task<List<Blog>> Handle(BlogListCommand request, CancellationToken cancellationToken)
         {
-            return await db.Blogs.ToListAsync();
+            return await db.Blogs.Where(x=>x.DeletedDate == null).ToListAsync();
         }
     }
 }

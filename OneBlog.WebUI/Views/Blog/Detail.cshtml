@@ -14,7 +14,7 @@
                 <p class="paragraph-small article-author">Ilham Baghirov</p>
             </a>
             <div class="article-hero-title">
-                <h1 class="title">Day trips around Arizona</h1>
+                <h1 class="title">@Model.Title</h1>
                 <p class="paragraph article-hero">
                    @Model.ShortDescription
                 </p>
@@ -24,7 +24,7 @@
                    href="../category/europe"
                    class="article-category-link w-inline-block"><div class="article-category-name">Europe</div></a>
                 <div class="article-date-time">
-                    <div class="tagline">@Model.CreatedDate.ToString("yyyy-mmm-dd")</div>
+                    <div class="tagline">@Model.CreatedDate.ToString("dddd, dd MMMM yyyy")</div>
                     <div class="tagline article"><strong>•</strong></div>
                     <div class="tagline">8 min read</div>
                 </div>

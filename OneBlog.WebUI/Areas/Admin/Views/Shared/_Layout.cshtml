@@ -178,7 +178,7 @@
                 </a>
             </li>
             <li class="afterli">
-                <a asp-controller="Blogs" asp-action="index" aria-expanded="false">
+                <a asp-area="Admin" asp-controller="Blog" asp-action="Index" aria-expanded="false">
                     <div class="nav_icon_small">
                         <img src="~/uploads/images/menu-icon/17.svg" alt="">
                     </div>
@@ -470,7 +470,7 @@
     </div>
 
     <!-- footer  -->
-    <script src="~/admin/js/jquery-3.4.1.min.js"></script>
+    <script src="~/lib/jquery/dist/jquery.js"></script>
     <!-- popper js -->
     <script src="~/admin/js/popper.min.js"></script>
     <!-- bootstarp js -->
@@ -522,9 +522,7 @@
         })
     </script>
 
-
-
-    <script src="~/libs/sweetalert/sweetalert.min.js"></script>
+    <script src="~/lib/sweetalert/sweetalert.min.js"></script>
     <link href="~/libs/toastr.js/toastr.css" rel="stylesheet" />
     <script src="~/libs/toastr.js/toastr.min.js"></script>
 
@@ -548,44 +546,53 @@
             "hideMethod": "fadeOut"
         }
         function removeEntity(id, name) {
+
             swal({
-                title: "Are you sure?",
-                text: `You will not be able to recover this '${name}' file!`,
+                title: "Eminsiniz?",
+                text: `Testik etdiyiniz teqdirde  '${name}' sistemden  silinecek!`,
                 type: "warning",
                 showCancelButton: true,
                 confirmButtonClass: "btn-danger",
-                buttons: ["No, cancel plx!", "Yes, delete it!"]
-            }).then(function(isConfirm) {
-                if (isConfirm) {
-                  $.ajax(
-                    {
-                        url: '@Url.Action("Delete")',
-                        type: 'POST',
-                        data: {id},
-                        contentType: 'application/x-www-form-urlencoded',
-                        dataType: 'json',
-                          beforeSend: function () {
-                              console.log("girdi")
-                        },
-                        success: function (response) {
-                            if (response.error == false) {
-                                toastr.success(response.message, "Successfuly")
-                                window.location.reload()
-                                console.log("aue")
-                            }
-                            else {
-                                toastr.error(response.message, "Error")
-                            }
-                        },
-                        error: function (response) {
-                            console.log(response)
+                buttons: ["No", "Yes"]
+            }).then(
+                function (isConfirm) {
+                    if (isConfirm) {
+                        $.ajax({
+                            url: '@Url.Action("Delete")',
+                            type: 'POST',
+                            data: { id },
+                            contentType: 'application/x-www-form-urlencoded', // ne tip  gedecek?   2side model binding rolnu oynayir datani back gondermek ucun isdifade edilir  yeni back gonderilmeye xirmet edilir
+                            dataType: 'json',
+                    beforeSend: function () {
+                        console.log("sorgudan evvel")   // loadir acmaq
+
+                    },
+                    success: function (response) {   // sorgunun neticesi ugurlu olsa
+                        console.log(response)
+
+                        if (response.error == false) {
+
+                          @*  toastr.success(response.Message, "Ugurludur");*@
+                            window.location.reload();
+
+                        } else {
+                          @*  toastr.error(response.Message, "xeta");*@
+
                         }
-                    }).always(function () {
-                        console.log("cixdi")
-                    })
-                }
-            });
-        }
+                    },
+                            error: function (response) {   // sorgunun neticesi ugursuz olsa
+                                console.log(response)
+                    },
+
+
+                }).always(function () {
+                         console.log("sorgudan sonra")  //loadir baglamaq
+
+                });
+
+                    }
+                });
+        };
 
         function banUser(id, name, banned) {
             var txt = ``
