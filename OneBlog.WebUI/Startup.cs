@@ -137,6 +137,7 @@ namespace OneBlog.WebUI
             }
             app.UseHttpsRedirection();
             app.SeedMembership();
+            app.UseDefaultFiles();
             app.UseStaticFiles();
 
             app.UseRouting();
