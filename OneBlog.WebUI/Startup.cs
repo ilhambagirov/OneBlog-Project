@@ -41,6 +41,7 @@ namespace OneBlog.WebUI
               {
                   cfg.UseSqlServer(Configuration.GetConnectionString("cString"));
               });*/
+            services.AddEntityFrameworkNpgsql();
             services.AddDbContext<OneBlogDbContext>(options =>
             {
                 var env = Environment.GetEnvironmentVariable("ASPNETCORE_ENVIRONMENT");
@@ -48,7 +49,7 @@ namespace OneBlog.WebUI
                 if (env == "Development")
                 {
                     connStr = Configuration.GetConnectionString("cString");
-                    options.UseSqlServer(connStr);
+                    options.UseNpgsql(connStr);
                 }
                 else
                 {
