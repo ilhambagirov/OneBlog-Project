@@ -44,8 +44,13 @@ namespace OneBlog.WebUI
             services.AddDbContext<OneBlogDbContext>(options =>
             {
                 var env = Environment.GetEnvironmentVariable("ASPNETCORE_ENVIRONMENT");
-
-                if (env == "Production")
+                string connStr;
+                if (env == "Development")
+                {
+                    connStr = Configuration.GetConnectionString("cString");
+                    options.UseSqlServer(connStr);
+                }
+                else
                 {
                     var connUrl = Environment.GetEnvironmentVariable("DATABASE_URL");
                     connUrl = connUrl.Replace("postgres://", string.Empty);
@@ -57,8 +62,10 @@ namespace OneBlog.WebUI
                     var pgPass = pgUserPass.Split(":")[1];
                     var pgHost = pgHostPort.Split(":")[0];
                     var pgPort = pgHostPort.Split(":")[1];
-                    options.UseNpgsql($"Server={pgHost};Port={pgPort};User Id={pgUser};Password={pgPass};Database={pgDb}; SSL Mode=Require; Trust Server Certificate=true");
+                    connStr = $"Server={pgHost};Port={pgPort};User Id={pgUser};Password={pgPass};Database={pgDb}; SSL Mode=Require; Trust Server Certificate=true";
+                    options.UseNpgsql(connStr);
                 }
+               
             });
             var asmbls = AppDomain.CurrentDomain.GetAssemblies().Where(a => a.FullName.StartsWith("OneBlog")).ToArray();
             services.AddMediatR(asmbls);
